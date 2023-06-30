@@ -1,0 +1,20 @@
+<!--更新で空白で更新を実行した際のメッセージ-->
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>error prohibited this book from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h1>Editing Book</h1>
+
+<!-- render [部分テンプレートファイルの指定], [ローカル変数]:[渡す値] -->
+<%= render 'form', book: @book %>
+
+<!--詳細画面のリンク -->
+<%= link_to "Show", book_path(@book.id) %> |
+
+<!--一覧画面のリンク -->
+<%= link_to "Back", books_path %>
